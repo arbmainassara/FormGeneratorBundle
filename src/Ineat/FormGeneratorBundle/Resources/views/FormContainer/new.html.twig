@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1 class="page-header">Nouveau questionnaire</h1>
+
+    {{ form(form) }}
+
+    <ul class="record_actions">
+    <li>
+        <a href="{{ path('formcontainer') }}">Retour à la liste</a>
+    </li>
+</ul>
+{% endblock %}

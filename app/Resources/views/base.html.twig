@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            .main {
+                top: 51px;
+            }
+            img.boule {
+                display: inline-block;
+                border-radius: 50%;
+            }
+
+        </style>
+        {% block stylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{path('home')}}">Générateur de formulaire</a>
+          <form class="navbar-form navbar-left">
+            <a href="{{path('formcontainer_new')}}" title="Nouveau questionnaire" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a>
+          </form>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Mon profile</a></li>
+            <li><a href="#">Déconnexion</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 main">
+            {% block body %}{% endblock %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            <script src="/public/js/bootstrap.min.js"></script>
+            <script src="/public/js/holder.min.js"></script>
+
+            {% block javascripts %}{% endblock %}
+        </div>
+        </div>
+    </div>
+    </body>
+</html>

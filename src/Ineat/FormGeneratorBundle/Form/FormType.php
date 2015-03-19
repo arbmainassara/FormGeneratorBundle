@@ -15,11 +15,24 @@ class FormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $type = new WidgetType();
+        $choiceTypes = array();
+        foreach ($type->getWidgetTypes() as $widgetName => $widgetType) {
+            $choiceTypes[$widgetName] = get_class($widgetType);
+        }
         $builder
             ->add('name')
             ->add('slug')
-            ->add('container')
-            ->add('widget', 'collection', array('type' => new WidgetType()));
+            ->add('widgets', 'bootstrap_collection', array(
+                'type' => $type,
+                'allow_add' => true,
+                'by_reference' => false,
+                'add_button_text' => 'Ajouter une question',
+                'delete_button_text' => 'Supprimer la question',
+            ));
+        // ->add('widgettype', 'choice', array(
+        //     'choices' => $choiceTypes,
+        // ));
 
     }
 

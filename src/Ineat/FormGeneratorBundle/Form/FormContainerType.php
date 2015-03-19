@@ -16,7 +16,16 @@ class FormContainerType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('forms', 'collection', array('type' => new FormType()));
+            ->add('forms', 'bootstrap_collection', array(
+                'type' => new FormType(),
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'add_button_text' => 'Ajouter une page',
+                'delete_button_text' => 'Supprimer la page',
+                'sub_widget_col' => 10,
+                'button_col' => 2,
+            ));
 
     }
 

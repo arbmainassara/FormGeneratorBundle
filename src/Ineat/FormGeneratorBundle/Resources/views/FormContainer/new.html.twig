@@ -1,13 +1,19 @@
 {% extends '::base.html.twig' %}
+{% form_theme form 'IneatFormGeneratorBundle::fields.html.twig' %}
 
 {% block body -%}
     <h1 class="page-header">Nouveau questionnaire</h1>
+    <div>
+        {{dump(form)}}
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
 
-    {{ form(form) }}
+        {{ form_row(form.name) }}
 
-    <ul class="record_actions">
-    <li>
-        <a href="{{ path('formcontainer') }}">Retour à la liste</a>
-    </li>
-</ul>
+        {{ form_row(form.forms)}}
+        
+        {{form_row(form.submit)}}
+        
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
